@@ -1,1 +1,27 @@
-<p>trainer works!</p>
+<div class="trainer-container">
+  <div class="top-content">
+    <div class="icon-container">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="back_icon"
+        fontIcon="arrow_back_ios"
+      ></mat-icon>
+    </div>
+
+    <div class="greeting">
+      <p class="main-title"><span>¡Hola!</span> Configuremos tu perfil</p>
+
+      <p class="main-subtitle">Queremos conocerte mejor.</p>
+    </div>
+  </div>
+
+  <div class="trainer-screen">
+    <div class="trainer-info-container">
+      <app-trainer-photo (photoSrc)="handlePhotoUpload($event)" />
+    </div>
+    <div class="trainer-info-container">
+      <app-trainer-form (saveForm)="saveTrainerData($event)" />
+    </div>
+  </div>
+</div>
+
