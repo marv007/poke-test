@@ -1,0 +1,91 @@
+<div class="form">
+  <p class="title-small">Tu información</p>
+  <p class="subtitle">
+    Completa la siguiente información para completar tu perfil
+  </p>
+
+  <form [formGroup]="trainerForm" (ngSubmit)="onSubmit()" class="trainer-form">
+    <div class="form-group floating-label">
+      <div class="form-item">
+        <input type="text" id="name" placeholder=" " formControlName="name" />
+        <label for="name">Nombre*</label>
+      </div>
+
+      <div
+        *ngIf="
+          trainerForm.get('name')?.invalid && trainerForm.get('name')?.touched
+        "
+        class="input-error"
+      >
+        <p>El nombre es requerido.</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <app-search-input
+        formControlName="hobby"
+        [options]="hobbies"
+      ></app-search-input>
+    </div>
+
+    <div class="form-group floating-label">
+      <div class="form-item">
+        <input
+          type="date"
+          id="birthdate"
+          placeholder=" "
+          formControlName="birthday"
+          (change)="onBirthdayChange()"
+        />
+        <label for="name">Cumpleaños*</label>
+      </div>
+
+      <div
+        *ngIf="
+          trainerForm.get('birthday')?.invalid &&
+          trainerForm.get('birthday')?.touched
+        "
+        class="input-error"
+      >
+        <p>La fecha de cumpleaños es requerida.</p>
+      </div>
+    </div>
+
+    <div class="form-group floating-label">
+      <div class="form-item">
+        <input
+          type="text"
+          id="document"
+          placeholder=" "
+          formControlName="document"
+          (input)="onInput($event)"
+        />
+        <label for="name">{{
+          age >= 18 ? "Documento*" : "Carnet de minoridad"
+        }}</label>
+      </div>
+
+      <div
+        *ngIf="
+          age >= 18 &&
+          trainerForm.get('document')?.invalid &&
+          trainerForm.get('document')?.touched
+        "
+        class="input-error"
+      >
+        <p>El documento es requerido.</p>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button
+        type="submit"
+        [disabled]="trainerForm.invalid"
+        [ngClass]="trainerForm.invalid ? 'button-disabled' : 'button-enabled'"
+      >
+        Continuar
+      </button>
+    </div>
+  </form>
+</div>
+
