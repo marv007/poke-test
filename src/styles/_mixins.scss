@@ -1,0 +1,63 @@
+@use "variables" as *;
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+}
+
+@mixin padding-horizontal($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin padding-vertical($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+@mixin flex($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin ghost-button($color, $fontSize: 12px) {
+  background-color: transparent;
+  border: 1px solid $color;
+  color: $color;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: $fontSize;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@mixin button($color, $fontColor, $fontSize: 18px) {
+  background-color: $color;
+  border: 1px solid $color;
+  color: $fontColor;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: $fontSize;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+  width: 222px;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
