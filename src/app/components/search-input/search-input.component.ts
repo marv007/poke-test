@@ -1,12 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-search-input',
   imports: [CommonModule],
   templateUrl: './search-input.component.html',
-  styleUrl: './search-input.component.scss'
+  styleUrl: './search-input.component.scss',
+  providers:  [
+    {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => SearchInputComponent),
+    multi: true,
+  },
+]
 })
 export class SearchInputComponent implements ControlValueAccessor {
   @Input() options: string[] = [];
@@ -27,6 +34,10 @@ export class SearchInputComponent implements ControlValueAccessor {
   onFocus() {
     this.showOptions = true;
     this.filterOptions();
+  }
+
+  onBlur() {
+    //this.showOptions = false;
   }
 
   onInputChange(event: Event) {
