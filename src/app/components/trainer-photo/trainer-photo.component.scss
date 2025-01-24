@@ -1,0 +1,105 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.trainer-card {
+  background-color: $primary;
+  border-radius: 50px;
+  padding: 40px;
+  min-height: 300px;
+
+  .trainer-name {
+    text-align: center;
+    color: $secondary;
+    font-weight: 700;
+    font-size: $medium-title;
+  }
+
+  .image-title {
+    text-align: center;
+  }
+
+  .trainer-medal {
+    @include flex(row, space-between, center);
+
+    .trainer-text {
+      color: $neutral;
+      font-weight: 500;
+      font-size: $subtitle-large;
+    }
+  }
+}
+
+.avatar-container {
+  @include flex(row, center, center);
+  background: $primary-blue40;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 14px solid $white;
+  border-radius: 50%;
+  width: 269px;
+  height: 269px;
+
+  .avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .avatar-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.info-container {
+  @include flex(row, space-between, center);
+
+  .info-title {
+    color: $neutral;
+    font-weight: 700;
+    font-size: $subtitle-large;
+  }
+
+  .info-subtitle {
+    color: $neutral-gray40;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
+
+.button-container {
+  width: 100%;
+
+  .delete-icon {
+    color: $red;
+  }
+
+  .upload-icon {
+    color: $blue-40;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .avatar-container {
+    width: 200px;
+    height: 200px;
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .avatar-container {
+    width: 150px;
+    height: 150px;
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
