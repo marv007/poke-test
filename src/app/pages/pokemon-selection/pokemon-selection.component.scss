@@ -1,0 +1,49 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.trainer-container {
+  @include padding-horizontal(80px);
+  padding-bottom: 10px;
+
+  .top-content {
+    @include flex(row, flex-start, flex-start);
+    margin-bottom: 20px;
+
+    .icon-container {
+      margin-top: 15px;
+      margin-right: 10px;
+      cursor: pointer;
+
+      mat-icon {
+        color: $blue;
+      }
+    }
+
+    .greeting {
+      @include flex(column, flex-start, flex-start);
+    }
+  }
+
+  .trainer-screen {
+    @include flex(row, space-between, flex-start);
+
+    .trainer-info-container {
+      @include flex(column, center, flex-start);
+      width: 60%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .trainer-container {
+    @include padding-horizontal(20px);
+    .trainer-screen {
+      @include flex(column, center, center);
+
+      .trainer-info-container {
+        @include flex(column, center, center);
+        width: 100%;
+      }
+    }
+  }
+}
