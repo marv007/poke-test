@@ -1,0 +1,51 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.small-card {
+  @include flex(column, center, center);
+  background: $white;
+  position: relative;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.5;
+  }
+
+  .pokemon-info {
+    @include flex(column, center, center);
+    background-color: $neutral-gray10;
+    padding: 10px;
+    border-radius: 20px;
+    @include padding-vertical(20px);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    &.selected {
+      background-color: $primary;
+    }
+
+    img {
+      position: absolute;
+      top: -35%;
+      width: 76.64px;
+      height: 83.56;
+    }
+
+    .info-badge {
+      @include flex(row, space-between, center);
+      @include padding-horizontal(10px);
+      @include padding-vertical(5px);
+      margin-top: 30px;
+      background-color: $secondary;
+      border-radius: 10px;
+      color: $white;
+      font-weight: 800;
+      font-size: $small;
+
+      .code {
+        margin-right: 5px;
+      }
+    }
+  }
+}

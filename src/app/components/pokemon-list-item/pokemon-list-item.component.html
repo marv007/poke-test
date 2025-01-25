@@ -1,0 +1,18 @@
+<div class="small-card"
+  [ngClass]="{
+    'disabled': disabled
+  }"
+  >
+  <div
+    [ngClass]="{
+      'selected': selected,
+    }"
+    class="pokemon-info"
+  >
+    <img [src]="pokemon.sprite" [alt]="pokemon.name" />
+    <div class="info-badge">
+      <p class="code">#{{ pokemon.index ?? 0 | formatIndex }}</p>
+      <p class="name">{{ pokemon.name | formatName }}</p>
+    </div>
+  </div>
+</div>
