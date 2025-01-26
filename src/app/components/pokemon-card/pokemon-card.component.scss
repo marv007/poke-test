@@ -12,6 +12,7 @@
 
     img {
       align-self: center;
+      max-width: 186px;
     }
 
     .pokemon-name {
@@ -59,7 +60,7 @@
       @include flex(column, center, center);
 
       img {
-        width: 100px;
+        max-width: 100px;
       }
 
       .pokemon-name {
