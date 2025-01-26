@@ -28,6 +28,11 @@ export interface PokeApiSingleResponse {
   sprites: {
     back_default: string;
     front_default: string;
+    other :{
+      home: {
+        front_default: string;
+      };
+    };
   };
   stats: PokeStats[];
   types: [];
