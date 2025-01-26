@@ -1,8 +1,8 @@
 @use "@angular/material" as mat;
 @use "styles/variables" as *;
 @use "styles/mixins" as *;
-//@use "swiper/element/css/effect-flip";
-//@use "ngx-toastr/toastr";
+@use "swiper/element/css/effect-cube";
+@use "ngx-toastr/toastr";
 
 /* Buttons styles */
 
@@ -12,7 +12,8 @@
 
 .ghost_button-secondary {
   @include ghost_button($secondary);
-  @include flex(row, space-between, center);
+  @include flex(row, center, center);
+  width: 134px;
 }
 
 .button-enabled {
