@@ -22,9 +22,4 @@ export class PokemonService {
     return this.http.get<PokeApiSingleResponse>(url);
   }
 
-  searchPokemon(query: string) {
-    return this.http.get<PokeApiSingleResponse>(
-      `${this.apiUrl}/pokemon/${query}`
-    );
-  }
 }
