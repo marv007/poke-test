@@ -6,6 +6,7 @@
       [src]="imgSrc || avatarPlaceholder"
       alt="avatar"
       [ngClass]="imgSrc ? 'avatar' : 'avatar-placeholder'"
+      (click)="imgSrc ? null : fileUploader.click()"
     />
   </div>
 
