@@ -1,0 +1,89 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.pokemon-info-card {
+  background-color: $neutral-gray10;
+  border-radius: 15px;
+  padding: 20px;
+  @include flex(row, flex-start, flex-end);
+
+  .pokemon-data {
+    @include flex(column, flex-end, flex-start);
+
+    img {
+      align-self: center;
+    }
+
+    .pokemon-name {
+      font-size: $medium-title;
+      font-weight: 700;
+      color: $secondary;
+    }
+
+    .pokemon-types {
+      font-size: $subtitle;
+      font-weight: 400;
+      color: $neutral-gray40;
+    }
+  }
+
+  .pokemon-stats {
+    width: 100%;
+    margin-left: 20px;
+
+    .stat {
+      @include flex(row, space-between, center);
+      width: 100%;
+      margin-top: 10px;
+
+      .stat-name {
+        font-size: $subtitle;
+        font-weight: 400;
+        color: $neutral-gray40;
+      }
+
+      app-progress-bar {
+        width: 50%;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 815px) {
+  .pokemon-info-card {
+    @include flex(column, center, center);
+    padding: 10px;
+
+    .pokemon-data {
+      @include flex(column, center, center);
+
+      img {
+        width: 100px;
+      }
+
+      .pokemon-name {
+        font-size: $medium-title;
+      }
+
+      .pokemon-types {
+        font-size: $subtitle;
+      }
+    }
+
+    .pokemon-stats {
+      margin-left: 0;
+
+      .stat {
+        .stat-name {
+          font-size: $subtitle;
+        }
+
+        app-progress-bar {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
