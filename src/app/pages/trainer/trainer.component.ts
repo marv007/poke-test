@@ -11,7 +11,7 @@ import { TrainerService } from '../../services/trainer.service';
   selector: 'app-trainer',
   imports: [MatIcon, TrainerFormComponent, TrainerPhotoComponent],
   templateUrl: './trainer.component.html',
-  styleUrl: './trainer.component.scss'
+  styleUrl: './trainer.component.scss',
 })
 export class TrainerComponent {
   trainerPhoto: string | null = null;
@@ -35,7 +35,7 @@ export class TrainerComponent {
 
     this.trainerService.createTrainer(fullTrainerData);
 
-    //this.router.navigate(['/pokemon-selection']);
+    this.router.navigate(['/pokemon-selection']);
   }
 
   handlePhotoUpload(photo: string | null): void {
