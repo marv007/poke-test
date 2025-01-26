@@ -1,0 +1,73 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.profile-container {
+  @include padding-horizontal(80px);
+  padding-bottom: 10px;
+
+  .header {
+    @include flex(row, flex-start, flex-start);
+    margin-bottom: 20px;
+
+    .icon-container {
+      margin-top: 15px;
+      margin-right: 10px;
+      cursor: pointer;
+
+      mat-icon {
+        color: $blue;
+        font-size: 18px;
+      }
+    }
+
+    .greeting {
+      @include flex(row, flex-start, center);
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .profile-data {
+    @include flex(row, space-between, flex-start);
+
+    .trainer-info {
+      @include flex(column, center, flex-start);
+      width: 60%;
+
+      .profile-update {
+        margin-top: 10px;
+      }
+
+      .title {
+        width: 100%;
+        @include flex(row, space-between, center);
+      }
+
+      app-my-pokemon-team {
+        width: 100%;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .profile-container {
+    @include padding-horizontal(20px);
+
+    .header {
+      @include flex(column, flex-start, center);
+    }
+
+    .profile-data {
+      @include flex(column, center, center);
+
+      .trainer-info {
+        @include flex(column, center, center);
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<div class="profile-container">
+  <div class="header">
+    <div class="greeting">
+      <p class="main-title">¡Hola {{ trainer.name }}!</p>
+
+      <button (click)="onEditProfile()" class="ghost_button-secondary">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="edit"
+          class="edit-icon"
+          fontIcon="edit"
+        ></mat-icon>
+
+        <p class="samll">Editar perfil</p>
+      </button>
+    </div>
+  </div>
+  <div class="profile-data">
+    <div class="trainer-info">
+      <app-trainer-photo
+        [trainer]="trainer"
+        [isEditing]="isEditing"
+        (photoSrc)="handlePhotoUpload($event)"
+      />
+    </div>
+    <div class="trainer-info">
+      <app-trainer-form
+        *ngIf="isEditing"
+        [trainer]="trainer"
+        (saveForm)="updateTrainerData($event)"
+      />
+
+      <div class="title" *ngIf="!isEditing">
+        <p class="main-title">Mis Pokémon</p>
+
+        <button (click)="onEditPokemon(true)" class="ghost_button-secondary">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="edit"
+            class="edit-icon"
+            fontIcon="edit"
+          ></mat-icon>
+
+          <p class="samll">Editar Pokémon</p>
+        </button>
+      </div>
+      <app-my-pokemon-team
+        *ngIf="!editingPokemon && !isEditing"
+        [selectedPokemon]="trainer.poketeam ?? []"
+      />
+
+      <app-pokemon-list
+        *ngIf="editingPokemon"
+        [isEditing]="editingPokemon"
+        (endEdit)="onEditPokemon(!$event)"
+      />
+    </div>
+  </div>
+</div>
