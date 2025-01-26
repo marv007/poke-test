@@ -74,7 +74,7 @@ export class PokemonSelectionComponent implements OnInit, OnDestroy {
                 (detail: PokeApiSingleResponse, index: number) => ({
                   name: detail.name,
                   url: pokemonUrls[index],
-                  sprite: detail.sprites.front_default,
+                  sprite: detail.sprites.other.home.front_default,
                   index: detail.id,
                   types: detail.types.map((t: PokeTypes) => t.type.name),
                   stats: detail.stats.map((s: PokeStats) => {
