@@ -17,6 +17,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class SearchInputComponent implements ControlValueAccessor {
   @Input() options: string[] = [];
+  @Input() label: string = '';
   @Output() optionSelected = new EventEmitter<string>();
 
   filteredOptions: string[] = [];
