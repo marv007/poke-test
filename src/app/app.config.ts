@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, ErrorHandler, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -6,6 +6,8 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideToastr } from 'ngx-toastr';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { httpInterceptor } from './interceptors/http.interceptor';
+import { ErrorHandlerService } from './services/error-handler.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,5 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideToastr(),
     provideHttpClient(),
+    provideHttpClient(withInterceptors([httpInterceptor])),
+    { provide: ErrorHandler, useClass: ErrorHandlerService },
   ]
 };
