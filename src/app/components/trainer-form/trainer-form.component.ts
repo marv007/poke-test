@@ -73,7 +73,7 @@ export class TrainerFormComponent implements OnInit{
       this.age = age;
 
       if (age >= 18) {
-        documentControl?.setValidators([Validators.required]);
+        documentControl?.setValidators([Validators.required, Validators.minLength(10)]);
       } else {
         documentControl?.clearValidators();
       }
