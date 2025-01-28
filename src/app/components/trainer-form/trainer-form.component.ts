@@ -8,6 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SearchInputComponent } from '../search-input/search-input.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-trainer-form',
@@ -30,7 +31,7 @@ export class TrainerFormComponent implements OnInit{
   trainerForm: FormGroup;
   age = 19;
 
-  constructor(private formBuilder: FormBuilder, /*private toastr: ToastrService*/) {
+  constructor(private formBuilder: FormBuilder, private toastr: ToastrService) {
     this.trainerForm = this.formBuilder.group({
       name: ['', Validators.required],
       hobby: [''],
@@ -107,7 +108,7 @@ export class TrainerFormComponent implements OnInit{
 
       this.trainerForm.reset();
     } else {
-      //this.toastr.error('Formulario inválido, por favor revise los campos');
+      this.toastr.error('Formulario inválido, por favor revise los campos');
     }
   }
 }
