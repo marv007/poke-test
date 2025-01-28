@@ -42,6 +42,7 @@ export class TrainerFormComponent implements OnInit{
   ngOnInit(): void {
     if (this.trainer) {
       this.trainerForm.patchValue(this.trainer);
+      this.onBirthdayChange();
     }
   }
 
