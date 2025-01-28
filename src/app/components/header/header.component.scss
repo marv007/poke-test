@@ -1,0 +1,41 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.main-header {
+  padding: 12px 41px;
+  box-shadow: 0px 8px 28px 0px #78b1b51a;
+  @include flex(row, space-between, center);
+}
+
+.nav-options {
+  @include flex(row, space-between, center);
+
+  .user-dropdown {
+    border: 1px solid $blue;
+    border-radius: 10px;
+    background-color: transparent;
+    color: $blue;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 25px;
+    @include padding-horizontal(20px);
+    @include padding-vertical(5px);
+  }
+
+  .mat-icon {
+    color: $blue;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-header {
+    padding: 12px 20px;
+    @include flex(column, center, center);
+  }
+
+  .nav-options {
+    .user-dropdown {
+      margin: 10px 10px;
+    }
+  }
+}

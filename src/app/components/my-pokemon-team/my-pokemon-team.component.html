@@ -1,0 +1,5 @@
+<swiper-container loop="true" effect="cube" navigation="true">
+  <swiper-slide *ngFor="let item of selectedPokemon">
+    <app-pokemon-card [pokemon]="item" />
+  </swiper-slide>
+</swiper-container>

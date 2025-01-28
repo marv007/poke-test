@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use "styles/variables" as *;
+@use "styles/mixins" as *;
+@use "swiper/element/css/effect-cube";
+@use "ngx-toastr/toastr";
+
+/* Buttons styles */
+
+.ghost_button-primary {
+  @include ghost_button($primary);
+}
+
+.ghost_button-secondary {
+  @include ghost_button($secondary);
+  @include flex(row, center, center);
+  width: 134px;
+}
+
+.button-enabled {
+  @include button($secondary, $white);
+}
+
+.button-disabled {
+  @include button($neutral-gray20, $neutral-gray40);
+}
+
+.upload-button {
+  @include button($white, $blue-40, 14px);
+  @include flex(row, space-between, center);
+  border: 1px dashed $blue-40;
+  width: 100%;
+}
+
+/* Typography styles */
+
+.main-title {
+  font-size: $medium-title;
+  font-weight: 600;
+  color: $secondary;
+
+  span {
+    font-weight: 700;
+  }
+}
+
+.main-subtitle {
+  font-size: $subtitle;
+  font-weight: 400;
+  color: $neutral-gray40;
+}
+
+.title-large {
+  font-size: $large-title;
+  font-weight: 700;
+  color: $blue;
+}
+
+.subtitle-small {
+  font-size: $small-title;
+  font-weight: 400;
+  color: $black;
+  text-align: center;
+}
+
+.title-small {
+  font-size: $small-title;
+  line-height: 48px;
+  font-weight: 400;
+  color: $blue;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: $subtitle;
+  line-height: 27px;
+  font-weight: 400;
+  color: $neutral-gray40;
+}
+
+/* Main styles */
+
+router-outlet {
+  @include padding-horizontal(41px);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: $poppins;
+  background-color: $white;
+}
+
+p {
+  margin: 0;
+}
+

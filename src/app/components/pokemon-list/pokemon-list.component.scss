@@ -1,0 +1,36 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.list-pokemon {
+  @include flex(column, center, center);
+
+  .titles {
+    @include flex(column, center, flex-start);
+  }
+
+  .virtual-scroll {
+    width: 100%;
+    margin-top: 20px;
+    @include flex(row, center, flex-start);
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .scroll-wrapper {
+      width: 100%;
+    }
+  }
+
+  .button-container {
+    margin-top: 20px;
+    @include flex(row, center, center);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .list-pokemon {
+    margin-left: 20px;
+    .virtual-scroll {
+      @include flex(column, center, center);
+    }
+  }
+}

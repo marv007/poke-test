@@ -1,0 +1,31 @@
+<div class="filter-input">
+  <div class="search-view">
+    <mat-icon
+      aria-hidden="false"
+      aria-label="search"
+      fontIcon="search"
+    ></mat-icon>
+    <input
+      type="text"
+      placeholder="Buscar por índice, nombre..."
+      (input)="onSearchPokemon($event)"
+    />
+  </div>
+</div>
+
+<div class="scroll-container">
+  <cdk-virtual-scroll-viewport itemSize="25" class="poke-viewport">
+    <div class="pokemon-grid">
+      <app-pokemon-list-item
+        class="pokemon-item"
+        *cdkVirtualFor="let item of filteredPokemon"
+        [pokemon]="item"
+        (click)="onPokemonSelect(item)"
+        [selected]="showIfSelected(item)"
+        [disabled]="getIfDisabled(item)"
+      >
+      </app-pokemon-list-item>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+

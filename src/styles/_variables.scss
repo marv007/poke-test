@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* Global Colors */
+:root {
+  --primary: #ffc600;
+  --secondary: #185a7d;
+  --neutral-gray40: #868686;
+  --neutral-gray20: #e6e6e6;
+  --neutral-gray10: #f2f2f2;
+  --gray: #eeeeee;
+  --neutral: #4b4b4b;
+  --black-50: #454545;
+  --black: #000000;
+  --white: #ffffff;
+  --primary-blue40: #e7eff5;
+  --blue-40: #9bb8d3;
+  --blue-10: #185a7d;
+  --blue-30: #2c85bc;
+  --blue: #01426a;
+  --red: #ff0000;
+  --green: #7ed876;
+
+  /* Colors for each pokemon type */
+  --bug: #729f3f;
+  --dark: #707070;
+  --dragon: #53a4cf;
+  --electric: #eed535;
+  --fairy: #fdb9e9;
+  --fighting: #d56723;
+  --fire: #fd7d24;
+  --flying: #3dc7ef;
+  --ghost: #7b62a3;
+  --grass: #9bcc50;
+  --ground: #f7de3f;
+  --ice: #51c4e7;
+  --normal: #a4acaf;
+  --poison: #b97fc9;
+  --psychic: #f366b9;
+  --rock: #a38c21;
+  --steel: #9eb7b8;
+  --water: #4592c4;
+}
+
+$primary: var(--primary);
+$secondary: var(--secondary);
+$neutral-gray40: var(--neutral-gray40);
+$neutral-gray20: var(--neutral-gray20);
+$neutral-gray10: var(--neutral-gray10);
+$gray: var(--gray);
+$neutral: var(--neutral);
+$black-50: var(--black-50);
+$black: var(--black);
+$white: var(--white);
+$primary-blue40: var(--primary-blue40);
+$blue-40: var(--blue-40);
+$blue-10: var(--blue-10);
+$blue-30: var(--blue-30);
+$blue: var(--blue);
+$red: var(--red);
+$green: var(--green);
+
+/* Global Font Sizes */
+$large-title: 40px;
+$medium-title: 35px;
+$small-title: 30px;
+$subtitle-large: 24px;
+$subtitle: 18px;
+$medium: 14px;
+$small: 12px;
+
+/* Global Fonts */
+$poppins: "Poppins", sans-serif;

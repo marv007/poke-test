@@ -1,0 +1,23 @@
+<header>
+  <div class="main-header">
+    <img [src]="logo" alt="PokemonLogo" />
+    <div class="nav-options" *ngIf="trainer?.isLogged">
+      <select
+        class="user-dropdown"
+        name="user"
+        id="user"
+        (change)="onSelect($event)"
+      >
+        <option value="" selected>{{ trainer?.name }}</option>
+        <option value="close" onclick="">Logout</option>
+      </select>
+
+      <mat-icon
+        aria-hidden="false"
+        aria-label="search_icon"
+        fontIcon="search"
+      ></mat-icon>
+    </div>
+  </div>
+</header>
+

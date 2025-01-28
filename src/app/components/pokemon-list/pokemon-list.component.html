@@ -1,0 +1,27 @@
+<div class="list-pokemon">
+  <div class="titles">
+    <p class="title-small">Pokemon</p>
+    <p class="subtitle">
+      Selecciona 3 Pokémon para que sean parte de tu equipo
+    </p>
+  </div>
+
+  <div class="virtual-scroll">
+    <app-virtual-scroll
+      class="scroll-wrapper"
+      (selectedPokemonChange)="onSelectedPokemonChange($event)"
+    ></app-virtual-scroll>
+  </div>
+
+  <div class="button-container">
+    <button
+      [disabled]="selectedPokemon.length < 3"
+      (click)="onAddToTeam()"
+      [ngClass]="
+        selectedPokemon.length < 3 ? 'button-disabled' : 'button-enabled'
+      "
+    >
+      Guardar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div *ngIf="isLoading">
+  <app-loading-screen />
+</div>
+
+<div class="trainer-container" *ngIf="!isLoading">
+  <div class="top-content">
+    <div
+      class="icon-container"
+      (click)="goToHome()"
+      (keydown.enter)="goToHome()"
+      tabindex="0"
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="back_icon"
+        fontIcon="arrow_back_ios"
+      ></mat-icon>
+    </div>
+
+    <div class="greeting">
+      <p class="main-title">¡Ya casi terminamos!</p>
+
+      <p class="main-subtitle">
+        Revisa la información y completa lo solicitado
+      </p>
+    </div>
+  </div>
+
+  <div class="trainer-screen">
+    <div class="trainer-info-container">
+      <app-trainer-photo [trainer]="trainer" />
+    </div>
+
+    <div class="trainer-info-container">
+      <app-pokemon-list
+        class="pokemon-list-item"
+        *ngIf="pokemonList && pokemonList.length"
+      />
+    </div>
+  </div>
+</div>
+

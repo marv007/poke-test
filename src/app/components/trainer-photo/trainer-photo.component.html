@@ -1,0 +1,68 @@
+<div class="trainer-card" *ngIf="!trainer || isEditing">
+  <p class="subtitle-small image-title">Imagen perfil</p>
+
+  <div class="avatar-container">
+    <img
+      [src]="imgSrc || avatarPlaceholder"
+      alt="avatar"
+      [ngClass]="imgSrc ? 'avatar' : 'avatar-placeholder'"
+      (click)="imgSrc ? null : fileUploader.click()"
+    />
+  </div>
+
+  <div class="button-container">
+    <input
+      type="file"
+      name="uploadimage"
+      accept="image/*"
+      id="upload"
+      hidden
+      #fileUploader
+      (change)="onFileChange($event)"
+    />
+    <button
+      class="upload-button"
+      (click)="imgSrc ? removePhoto() : fileUploader.click()"
+    >
+      <p class="upload-text">
+        {{ imgSrc ? imgName : "Adjunta una foto" }}
+      </p>
+
+      <mat-icon
+        aria-hidden="false"
+        aria-label="upload"
+        [ngClass]="imgSrc ? 'delete-icon' : 'upload-icon'"
+        [fontIcon]="imgSrc ? 'delete' : 'cloud_upload_outline'"
+      ></mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="trainer-card" *ngIf="trainer && !isEditing">
+  <p *ngIf="!trainer.isLogged" class="trainer-name">{{ trainer.name }}</p>
+
+  <div *ngIf="trainer.isLogged" class="trainer-medal">
+    <p class="trainer-text">Entrenador</p>
+
+    <img [src]="medal" alt="medal" class="medal" />
+  </div>
+
+  <div class="avatar-container">
+    <img [src]="trainer.photo || 'images/avatar'" alt="avatar" class="avatar" />
+  </div>
+
+  <div class="info-container">
+    <p class="info-title">Pasatiempo:</p>
+    <p class="info-subtitle">{{ trainer.hobby }}</p>
+  </div>
+
+  <div class="info-container">
+    <p class="info-title">Edad:</p>
+    <p class="info-subtitle">{{ trainer.age }} años</p>
+  </div>
+
+  <div class="info-container" *ngIf="trainer.age >= 18">
+    <p class="info-title">DUI:</p>
+    <p class="info-subtitle">{{ trainer.document }}</p>
+  </div>
+</div>

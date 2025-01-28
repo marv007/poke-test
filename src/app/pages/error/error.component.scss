@@ -1,0 +1,19 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.container {
+  @include flex(column, center, center);
+  height: 100vh;
+
+  .title {
+    font-size: $large-title;
+    font-weight: 700;
+    color: $blue;
+  }
+
+  .subtitle {
+    font-size: $subtitle;
+    font-weight: 400;
+    color: $neutral-gray40;
+  }
+}

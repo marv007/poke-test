@@ -1,0 +1,21 @@
+<div class="pokemon-info-card">
+  <div class="pokemon-data">
+    <img [src]="pokemon.sprite" alt="pokemon" />
+
+    <p class="pokemon-name">{{ pokemon.name | capitalize }}</p>
+    <p class="pokemon-types">{{ returnPokemonTypes }}</p>
+  </div>
+
+  <div class="pokemon-stats">
+    <div class="stat" *ngFor="let item of pokemon.stats">
+      <p class="stat-title">{{ item.name }}</p>
+
+      <app-progress-bar
+        [statDefault]="item.defaultValue"
+        [currentStat]="item.value"
+        [color]="pokemonTypeColor"
+      />
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="search-input-container">
+  <div class="input-group">
+    <input
+      type="text"
+      [value]="searchQuery"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+      (input)="onInputChange($event)"
+      id="search"
+      placeholder=" "
+      class="search-input"
+    />
+    <label for="search" [class.focused]="searchQuery || showOptions"
+      >{{label}}</label
+    >
+  </div>
+
+  <ul class="options-list" *ngIf="showOptions && filteredOptions.length > 0">
+    <li
+      *ngFor="let option of filteredOptions"
+      (click)="selectOption(option)"
+      (keydown.enter)="selectOption(option)"
+      tabindex="0"
+      class="option-item"
+    >
+      {{ option }}
+    </li>
+  </ul>
+</div>

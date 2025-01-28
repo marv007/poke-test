@@ -1,0 +1,72 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.form {
+  @include flex(column, center, flex-start);
+
+  .trainer-form {
+    margin-top: 40px;
+    @include flex(column, center, center);
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .floating-label {
+      position: relative;
+    }
+
+    .form-item {
+      position: relative;
+    }
+
+    input {
+      width: 334px;
+      padding: 10px 5px;
+      font-size: 16px;
+      border: 1px solid $neutral-gray40;
+      border-radius: 10px;
+      outline: none;
+      background: transparent;
+      @include padding-horizontal(15px);
+    }
+
+    label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      transition: all 0.3s ease;
+      font-size: 16px;
+      color: $neutral-gray40;
+      pointer-events: none;
+      background-color: #fff;
+      padding: 0 5px;
+    }
+
+    input:focus + label,
+    input:not(:placeholder-shown) + label {
+      top: 0px;
+      font-size: $small;
+      color: $blue;
+      font-weight: 700;
+    }
+
+    input:focus {
+      border-color: $blue;
+    }
+
+    .input-error {
+      color: $red;
+      font-size: $small;
+      margin-top: 2px;
+    }
+
+    .button-container {
+      margin-top: 60px;
+      padding-bottom: 20px;
+      @include flex(row, center, center);
+    }
+  }
+}
