@@ -1,5 +1,5 @@
 import { ErrorHandler, inject, Injectable, NgZone } from '@angular/core';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
